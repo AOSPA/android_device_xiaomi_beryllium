@@ -23,6 +23,9 @@ DEVICE_PATH := device/xiaomi/beryllium
 # Assert
 TARGET_OTA_ASSERT_DEVICE := beryllium
 
+# Camera
+TARGET_FACE_UNLOCK_CAMERA_ID := 5
+
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
 
