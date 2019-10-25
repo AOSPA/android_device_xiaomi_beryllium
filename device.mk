@@ -492,7 +492,7 @@ TARGET_COMMON_QTI_COMPONENTS += \
 
 # RCS
 PRODUCT_SYSTEM_PROPERTIES += \
-    persist.rcs.supported=0
+    persist.rcs.supported=1
 
 # Recovery
 PRODUCT_PACKAGES += \
