@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2018-2020 The LineageOS Project
+# Copyright (C) 2020 Paranoid Android
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -21,14 +22,10 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay
 
 PRODUCT_PACKAGES += \
     NoCutoutOverlay
-
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-lineage/lineage-sdk
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -84,7 +81,3 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
     $(LOCAL_PATH)/keylayout/uinput-fpc.kl:system/usr/keylayout/uinput-fpc.kl \
     $(LOCAL_PATH)/keylayout/uinput-goodix.kl:system/usr/keylayout/uinput-goodix.kl
-
-# PocketMode
-PRODUCT_PACKAGES += \
-    XiaomiPocketMode
