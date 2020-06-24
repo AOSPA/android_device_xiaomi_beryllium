@@ -1,3 +1,6 @@
+# Always on Display
+debug.force_no_blanking=true
+
 # Camera
 persist.vendor.camera.perfcapture=1
 
