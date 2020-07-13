@@ -14,6 +14,10 @@ $(call inherit-product-if-exists, vendor/xiaomi/beryllium/beryllium-vendor.mk)
 TARGET_SCREEN_HEIGHT := 2246
 TARGET_SCREEN_WIDTH := 1080
 
+# Dynamic Thermal
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
