@@ -4,5 +4,8 @@ debug.force_no_blanking=true
 # Camera
 persist.vendor.camera.perfcapture=1
 
+# FaceSense
+ro.face.ext_service.cam_id=5
+
 # Recovery
 ro.recovery.ui.margin_height=87
