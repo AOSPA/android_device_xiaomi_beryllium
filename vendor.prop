@@ -1,5 +1,2 @@
-# Display postprocessing
-vendor.display.enable_default_color_mode=1
-
 # FM
 vendor.hw.fm.init=0

@@ -22,8 +22,6 @@ BOARD_HAVE_QCOM_FM := true
 
 # Display
 TARGET_SCREEN_DENSITY := 440
-TARGET_USES_COLOR_METADATA := true
-TARGET_USES_DRM_PP := true
 
 # Kernel
 TARGET_KERNEL_CONFIG := beryllium_defconfig
