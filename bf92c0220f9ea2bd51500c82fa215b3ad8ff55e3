@@ -16,6 +16,24 @@
       "message": "It\u0027s not working",
       "revId": "bf92c0220f9ea2bd51500c82fa215b3ad8ff55e3",
       "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3367d48_8f580b49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000463
+      },
+      "writtenOn": "2021-02-19T00:15:14Z",
+      "side": 1,
+      "message": "Shouldn\u0027t we give a try to source blobs then?\n\nhttps://github.com/YumeMichi/device_xiaomi_sdm845-common/commit/9ab65bd2007428859d385cd06a704b05f637372b",
+      "parentUuid": "84d3977a_9e33407d",
+      "revId": "bf92c0220f9ea2bd51500c82fa215b3ad8ff55e3",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
     }
   ]
 }
