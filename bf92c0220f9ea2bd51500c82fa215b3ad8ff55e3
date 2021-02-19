@@ -34,6 +34,24 @@
       "parentUuid": "84d3977a_9e33407d",
       "revId": "bf92c0220f9ea2bd51500c82fa215b3ad8ff55e3",
       "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a253be1f_a0d40eea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000463
+      },
+      "writtenOn": "2021-02-19T00:17:06Z",
+      "side": 1,
+      "message": "Because iirc, the only issue is it\u0027s working while screen off, but while screen on works.",
+      "parentUuid": "e3367d48_8f580b49",
+      "revId": "bf92c0220f9ea2bd51500c82fa215b3ad8ff55e3",
+      "serverId": "3162e3d8-d894-470e-abd9-724f7b0effad"
     }
   ]
 }
