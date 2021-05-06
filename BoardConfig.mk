@@ -61,6 +61,9 @@ TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_CONFIG := vendor/xiaomi/beryllium_defconfig
 TARGET_KERNEL_VERSION := 4.9
 
+# Light
+TARGET_PROVIDES_LIBLIGHT := true
+
 # LMKD
 TARGET_LMKD_STATS_LOG := true
 

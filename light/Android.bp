@@ -18,6 +18,7 @@ cc_binary {
     name: "android.hardware.light@2.0-service.xiaomi_beryllium",
     init_rc: ["android.hardware.light@2.0-service.xiaomi_beryllium.rc"],
     vintf_fragments: ["android.hardware.light@2.0-service.xiaomi_beryllium.xml"],
+    overrides: ["android.hardware.lights-service.qti"],
     srcs: ["service.cpp", "Light.cpp"],
     vendor: true,
     shared_libs: [
