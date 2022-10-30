@@ -161,7 +161,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_PROPERTIES += \
     camera.disable_zsl_mode=true \
     persist.vendor.camera.perfcapture=1 \
-    vendor.camera.aux.packagelist=com.android.camera,org.codeaurora.snapcam
+    vendor.camera.aux.packagelist=com.android.camera,org.codeaurora.snapcam,co.aospa.sense
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -497,6 +497,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.sensor.pickup=xiaomi.sensor.pickup \
     ro.sensor.proximity=true
+
+# ParanoidSense
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.face.sense_service.camera_id=5
 
 # Permissions
 PRODUCT_COPY_FILES += \
