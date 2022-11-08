@@ -373,7 +373,15 @@ on post-fs-data
     mkdir /data/vendor/fm 0770 system system
     chmod 0770 /data/vendor/fm
 
+    # Create PERFD deamon related dirs
+    mkdir /data/vendor/perfd 0770 root system
+    chmod 2770 /data/vendor/perfd
+    rm /data/vendor/perfd/default_values
+
     mkdir /data/vendor/secure_element 0777 system system
+
+    # Create IOP deamon related dirs
+    mkdir /data/vendor/iop 0700 root system
 
     # Mark the copy complete flag to not completed
     write /data/vendor/radio/copy_complete 0
@@ -617,6 +625,12 @@ service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0
     group system
     disabled
 
+service vendor.power /vendor/bin/hw/android.hardware.power-service-qti
+    override
+    class hal
+    user system
+    group system input
+
 on property:vold.decrypt=trigger_restart_framework
     restart vendor.audio-hal
     start vendor-sensor-sh
@@ -643,6 +657,9 @@ service vendor.per_proxy /vendor/bin/pm-proxy
     user system
     group system
     disabled
+
+on property:init.svc.vendor.per_mgr=running
+    start vendor.per_proxy
 
 on property:sys.shutdown.requested=*
     stop vendor.per_proxy

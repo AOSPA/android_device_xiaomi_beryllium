@@ -26,7 +26,6 @@
 #
 
 on early-init
-    # Enable sched_boost
     write /proc/sys/kernel/sched_boost 1
 
 on init
@@ -61,11 +60,21 @@ on init
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "schedutil"
     write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us 500
     write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us 20000
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq 1209600
+    write /sys/devices/system/cpu/cpu0/cpufreq/schedutil/pl 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 576000
 
     # Configure governor settings for big cluster
     write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor "schedutil"
     write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us 500
     write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_freq 1574400
+    write /sys/devices/system/cpu/cpu4/cpufreq/schedutil/pl 1
+    write /sys/module/cpu_boost/parameters/input_boost_freq "0:1324800"
+    write /sys/module/cpu_boost/parameters/input_boost_ms 120
+
+    # Limit the min frequency to 825MHz
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 825000
 
     # Set default schedTune value for foreground/top-app
     write /dev/stune/foreground/schedtune.prefer_idle 1
@@ -95,9 +104,6 @@ on boot
     write /dev/cpuset/background/cpus 0-7
     write /dev/cpuset/system-background/cpus 0-7
 
-    # Disable console_suspend to get better logging for kernel crashes
-    write /sys/module/printk/parameters/console_suspend N
-
 on post-fs
     # Disable sched autogroup
     write /proc/sys/kernel/sched_autogroup_enabled 0
@@ -120,9 +126,6 @@ on property:init.svc.vendor.charger=running
 
     # Turn on sleep modes
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
-
-    # Disable sched_boost
-    write /proc/sys/kernel/sched_boost 0
 
     # Enable charging LED indicator
     chown system system /sys/class/leds/white/brightness
@@ -241,10 +244,6 @@ on enable-low-power
     # Turn on sleep modes
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
-    # Enable idle state listener
-    write /sys/class/drm/card0/device/idle_encoder_mask 1
-    write /sys/class/drm/card0/device/idle_timeout_ms 100
-
     # Enable UFS powersaving
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/clkgate_enable 1
     write /sys/devices/platform/soc/${ro.boot.bootdevice}/hibern8_on_idle_enable 1
@@ -252,17 +251,11 @@ on enable-low-power
     write /proc/sys/vm/swappiness 100
     write /proc/sys/vm/watermark_scale_factor 1
 
-    # Enable PowerHAL hint processing
-    setprop vendor.powerhal.init 1
-
-    start vendor.per_proxy
+    # Post-setup services
+    setprop vendor.post_boot.parsed 1
 
 on property:sys.boot_completed=1
     trigger enable-low-power
-
-# If UART is on, enable console_suspend on boot_complete to save power
-on property:sys.boot_completed=1 && property:init.svc.console=running
-    write /sys/module/printk/parameters/console_suspend Y
 
 on property:init.svc.recovery=running
     trigger enable-low-power
