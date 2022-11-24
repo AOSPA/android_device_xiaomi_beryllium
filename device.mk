@@ -274,9 +274,6 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.allocator@1.0.vendor \
-    android.hidl.base@1.0 \
-    android.hidl.base@1.0.vendor \
-    android.hidl.memory@1.0.vendor \
     libhidltransport \
     libhidltransport.vendor \
     libhwbinder \
@@ -329,19 +326,6 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.audio.soundtrigger.training.level=60 \
     ro.vendor.audio.soundtrigger.hist.duration=1500
 
-# LMKD
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.lmk.low=1001 \
-    ro.lmk.medium=800 \
-    ro.lmk.critical=0 \
-    ro.lmk.critical_upgrade=false \
-    ro.lmk.upgrade_pressure=100 \
-    ro.lmk.downgrade_pressure=100 \
-    ro.lmk.kill_heaviest_task=true \
-    ro.lmk.kill_timeout_ms=100 \
-    ro.lmk.use_minfree_levels=true \
-    ro.lmk.log_stats=true
-
 # Media
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
@@ -373,10 +357,6 @@ PRODUCT_SYSTEM_PROPERTIES += \
     debug.stagefright.omx_default_rank.sw-audio=1 \
     debug.stagefright.omx_default_rank=0 \
     media.settings.xml=/vendor/etc/media_profiles_vendor.xml
-
-# Memory optimizations
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.vendor.qti.sys.fw.bservice_enable=true
 
 # Native libraries whitelist
 PRODUCT_COPY_FILES += \
@@ -466,17 +446,6 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-vendorcompat \
     libprotobuf-cpp-lite-vendorcompat
-
-# QC framework value-adds
-PRODUCT_ODM_PROPERTIES += \
-    ro.vendor.qti.va_odm.support=1
-
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.vendor.qti.va_aosp.support=1
-
-# QTI
-PRODUCT_PACKAGES += \
-    libqti_vndfwk_detect.vendor
 
 # QTI Common
 TARGET_COMMON_QTI_COMPONENTS += \
@@ -569,10 +538,3 @@ PRODUCT_SYSTEM_PROPERTIES += \
     ro.zram.first_wb_delay_mins=1440 \
     ro.zram.mark_idle_delay_mins=60 \
     ro.zram.periodic_wb_delay_hours=24
-
-# Zygote
-PRODUCT_SYSTEM_PROPERTIES += \
-    persist.device_config.runtime_native.usap_pool_enabled=true
-
-PRODUCT_VENDOR_PROPERTIES += \
-    zygote.critical_window.minute=10
