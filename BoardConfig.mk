@@ -43,6 +43,9 @@ TARGET_SCREEN_DENSITY := 440
 # Gestures
 TARGET_TAP_TO_WAKE_EVENT_NODE  := "/dev/input/event2"
 
+# GPS
+LOC_HIDL_VERSION := 4.0
+
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
      $(DEVICE_PATH)/configs/hidl/xiaomi_vendor_framework_compatibility_matrix.xml
