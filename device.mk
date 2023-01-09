@@ -375,6 +375,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AOSPABerylliumFrameworksOverlay \
     AOSPABerylliumSystemUIOverlay \
+    BerylliumCarrierConfigOverlay \
     BerylliumFrameworksOverlay \
     BerylliumNoCutoutOverlay \
     BerylliumSettingsOverlay \
