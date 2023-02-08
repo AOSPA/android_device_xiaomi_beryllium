@@ -53,8 +53,6 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
 DEVICE_MANIFEST_FILE := \
      $(DEVICE_PATH)/configs/hidl/manifest.xml
 
-DEVICE_MATRIX_FILE += device/qcom/common/compatibility_matrix.xml
-
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 1
 BOARD_KERNEL_BASE := 0x00000000
