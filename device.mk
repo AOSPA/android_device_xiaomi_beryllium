@@ -153,7 +153,6 @@ PRODUCT_VENDOR_PROPERTIES += \
 
 # Chipset
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.soc.manufacturer=Qualcomm \
     ro.soc.model=SDM845
 
 # Common init scripts
