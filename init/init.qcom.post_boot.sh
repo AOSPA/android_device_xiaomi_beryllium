@@ -47,3 +47,7 @@ fi
 misc_link=$(ls -l /dev/block/bootdevice/by-name/misc)
 real_path=${misc_link##*>}
 setprop persist.vendor.mmi.misc_dev_path $real_path
+
+echo 2 > /proc/irq/7/smp_affinity_list # msm_drm
+echo 1 > /proc/irq/493/smp_affinity_list # kgsl-3d0
+
