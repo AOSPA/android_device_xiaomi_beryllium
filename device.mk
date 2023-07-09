@@ -459,6 +459,8 @@ TARGET_COMMON_QTI_COMPONENTS += \
     vibrator \
     wfd
 
+TARGET_GPS_COMPONENT_VARIANT := gps
+
 # RCS
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.rcs.supported=1
